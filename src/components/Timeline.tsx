@@ -116,9 +116,9 @@ export default function Timeline({ milestones }: TimelineProps) {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-6 py-12">
+    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-12">
       {/* Main Content */}
-      <div className="relative h-[500px] mb-16">
+      <div className="relative h-[500px] mb-8 sm:mb-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
@@ -126,10 +126,10 @@ export default function Timeline({ milestones }: TimelineProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute inset-0 flex gap-16 items-center"
+            className="absolute inset-0 flex flex-col sm:flex-row gap-8 sm:gap-16 items-center"
           >
             <motion.div
-              className="w-1/2 relative h-full rounded-3xl overflow-hidden shadow-2xl"
+              className="w-full sm:w-1/2 relative h-[200px] sm:h-full rounded-3xl overflow-hidden shadow-2xl"
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -143,12 +143,12 @@ export default function Timeline({ milestones }: TimelineProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             </motion.div>
-            <div className="w-1/2 p-8 space-y-6">
+            <div className="w-full sm:w-1/2 p-4 sm:p-8 space-y-4 sm:space-y-6">
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-purple-400 text-xl font-medium"
+                className="text-purple-400 text-lg sm:text-xl font-medium"
               >
                 {milestones[activeIndex].date}
               </motion.p>
@@ -156,7 +156,7 @@ export default function Timeline({ milestones }: TimelineProps) {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                className="text-4xl font-bold text-white"
+                className="text-2xl sm:text-4xl font-bold text-white"
               >
                 {milestones[activeIndex].title}
               </motion.h2>
@@ -164,7 +164,7 @@ export default function Timeline({ milestones }: TimelineProps) {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                className="text-gray-300 text-xl leading-relaxed"
+                className="text-gray-300 text-base sm:text-xl leading-relaxed"
               >
                 {milestones[activeIndex].description}
               </motion.p>

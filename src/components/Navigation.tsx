@@ -23,9 +23,9 @@ export default function Navigation() {
             <Image
               src="/images/ABC.white.png"
               alt="ABC Logo"
-              width={100}
-              height={40}
-              className="object-contain"
+              width={120}
+              height={50}
+              className="w-[110px] sm:w-[110px] h-auto object-contain"
               priority
             />
           </Link>
