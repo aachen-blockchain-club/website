@@ -77,7 +77,7 @@ export default function CryptoBackground() {
 
     // Sort speeds to create a visually interesting pattern
     // This ensures we have a mix of fast and slow chains spread across the screen
-    chainSpeeds.sort((a, b) => (Math.random() > 0.5 ? 1 : -1));
+    chainSpeeds.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
     // Start separate intervals for each chain with their unique speeds
     const intervals = chainSpeeds.map((speed, i) => {
@@ -94,7 +94,8 @@ export default function CryptoBackground() {
 
     return () => {
       intervals.forEach((timeout) => clearTimeout(timeout));
-      chainIntervalsRef.current.forEach((interval) => clearInterval(interval));
+      const currentIntervals = chainIntervalsRef.current;
+      currentIntervals.forEach((interval) => clearInterval(interval));
     };
   }, []);
 

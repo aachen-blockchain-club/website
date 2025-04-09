@@ -238,13 +238,3 @@ export default function Timeline({ milestones }: TimelineProps) {
     </div>
   );
 }
-
-// Add this to your global CSS file
-const styles = `
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}`;
