@@ -7,17 +7,16 @@ interface Block {
   y: number;
   isNew: boolean;
   chainId: number;
+  opacity: number;
 }
 
 export default function CryptoBackground() {
   const [blocks, setBlocks] = useState<Block[]>([]);
   const chainCountRef = useRef(4);
   const startMargin = 5; // Starting margin from left
-  const blockSpacing = 7; // Slightly reduce spacing to fit more blocks
-  // Calculate blocks per chain based on available width, add 1 more column
-  const blocksPerChainRef = useRef(
-    Math.floor((100 - 2 * startMargin) / blockSpacing) + 1
-  );
+  const blockSpacing = 5; // Block spacing
+  // Calculate max blocks to end at same margin as startMargin
+  const maxBlocksPerChain = Math.floor((100 - 2 * startMargin) / blockSpacing + 1);
   const chainIntervalsRef = useRef<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
@@ -25,16 +24,16 @@ export default function CryptoBackground() {
     const genesisBlocks: Block[] = Array.from(
       { length: chainCountRef.current },
       (_, i) => {
-        // Calculate vertical position to spread chains evenly
-        const verticalSpacing = 80 / (chainCountRef.current + 1); // Increased to 80% of screen height
-        const yPosition = 10 + (i + 1) * verticalSpacing; // Start at 10% from top for more space
+        const verticalSpacing = 80 / (chainCountRef.current + 1);
+        const yPosition = 10 + (i + 1) * verticalSpacing;
 
         return {
           id: i,
-          x: 5, // Start at 5% from left to give more horizontal space
+          x: startMargin,
           y: yPosition,
           isNew: true,
           chainId: i,
+          opacity: 1,
         };
       }
     );
@@ -44,7 +43,20 @@ export default function CryptoBackground() {
     const createNewBlock = (chainId: number) => {
       setBlocks((prevBlocks) => {
         const chainBlocks = prevBlocks.filter((b) => b.chainId === chainId);
-        if (chainBlocks.length >= blocksPerChainRef.current) return prevBlocks;
+        
+        // If chain has reached max blocks, reset it by removing all blocks and starting fresh
+        if (chainBlocks.length >= maxBlocksPerChain) {
+          const otherChainBlocks = prevBlocks.filter((b) => b.chainId !== chainId);
+          const newGenesisBlock: Block = {
+            id: Date.now() + Math.random(),
+            x: startMargin,
+            y: chainBlocks[0].y, // Keep same Y position
+            isNew: true,
+            chainId,
+            opacity: 1,
+          };
+          return [...otherChainBlocks, newGenesisBlock];
+        }
 
         // Reset isNew flag for existing blocks in this chain
         const updatedBlocks = prevBlocks.map((block) => ({
@@ -55,36 +67,32 @@ export default function CryptoBackground() {
         const lastBlock = chainBlocks[chainBlocks.length - 1];
 
         // Add new block to the right
-        const newBlock = {
-          id: prevBlocks.length,
-          x: lastBlock.x + blockSpacing, // Use consistent block spacing
+        const newBlock: Block = {
+          id: Date.now() + Math.random(),
+          x: lastBlock.x + blockSpacing,
           y: lastBlock.y,
           isNew: true,
           chainId,
+          opacity: 1,
         };
 
         return [...updatedBlocks, newBlock];
       });
     };
 
-    // Generate unique speeds for each chain
+    // Generate unique speeds for each chain with more variation
     const chainSpeeds = Array.from(
       { length: chainCountRef.current },
-      () =>
-        // Faster speed range for quicker block generation
-        Math.floor(Math.random() * 500) + 500 // Random speed between 500ms and 1000ms
+      () => Math.floor(Math.random() * 700) + 400 // Random speed between 400ms and 1100ms
     );
 
     // Sort speeds to create a visually interesting pattern
-    // This ensures we have a mix of fast and slow chains spread across the screen
-    chainSpeeds.sort(() => (Math.random() > 0.5 ? 1 : -1));
+    chainSpeeds.sort(() => Math.random() - 0.5);
 
     // Start separate intervals for each chain with their unique speeds
     const intervals = chainSpeeds.map((speed, i) => {
-      // Initial delay between 0-1s to stagger the start
-      const initialDelay = Math.random() * 1000;
-
-      console.log(`Chain ${i + 1} speed: ${speed}ms`); // Log each chain's speed for debugging
+      // Initial delay between 0-2s to stagger the start
+      const initialDelay = Math.random() * 2000;
 
       return setTimeout(() => {
         const interval = setInterval(() => createNewBlock(i), speed);
