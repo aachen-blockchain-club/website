@@ -13,11 +13,8 @@ export default function Home() {
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
             Aachen Blockchain Club
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 text-gray-300">
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 text-gray-300">
             empowering Aachen, one block at a time
-          </p>
-          <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-400">
-            Your gateway to the world of blockchain technology
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
