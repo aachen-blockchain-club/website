@@ -10,7 +10,7 @@ const nextConfig = {
   // Only add basePath for GitHub Pages deployment
   ...(process.env.GITHUB_PAGES && {
     basePath: '/website',
-    assetPrefix: '/website/',
+    assetPrefix: '/website',
   }),
 };
 
