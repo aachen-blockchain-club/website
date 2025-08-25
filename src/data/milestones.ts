@@ -1,5 +1,4 @@
 interface Milestone {
-  id: number;
   date: string;
   title: string;
   description: string;
@@ -8,45 +7,58 @@ interface Milestone {
 
 export const milestones: Milestone[] = [
   {
-    id: 1,
-    date: "September 2022",
-    title: "Club Foundation",
-    description: "Aachen Blockchain Club was founded by a group of passionate students and blockchain enthusiasts.",
-    image: "/images/milestones/foundation.jpg"
+    date: "May 2015",
+    title: "First Bitcoin Meetup",
+    description: "The first student-led blockchain initiative in Germany was launched in Aachen under the name Bitcoin-Aachen, hosting monthly meetups.",
+    image: "/images/milestones/01_bitcoinaachen.png"
   },
   {
-    id: 2,
-    date: "January 2023",
-    title: "Official Registration",
-    description: "ABC was officially registered as a student organization at RWTH Aachen University.",
-    image: "/images/milestones/registration.jpg"
+    date: "November 2021",
+    title: "Blockchain Meetup",
+    description: "Focus shifted to broader blockchain topics, with bi-weekly meetups mostly online due to Covid19.",
+    image: "/images/milestones/02_first-abc-meetup.png"
   },
   {
-    id: 3,
-    date: "March 2023",
-    title: "First Blockchain Workshop",
-    description: "Successfully organized our first blockchain development workshop with over 50 participants.",
-    image: "/images/milestones/workshop.jpg"
+    date: "October 2022",
+    title: "Founding of Aachen Blockchain Club",
+    description: "Eight founding members established ABC as a non-profit student initiative to build a sustainable, impact-driven club.",
+    image: "/images/milestones/03_foundation.jpeg"
   },
   {
-    id: 4,
-    date: "June 2023",
-    title: "Industry Partnership",
-    description: "Established partnerships with leading blockchain companies and started our mentorship program.",
-    image: "/images/milestones/partnership.jpg"
+    date: "May 2023",
+    title: "Educational Workshops",
+    description: "The first “Blockchain with Pen & Paper” workshop kicked off our series, teaching students the basics of blockchain. Many more workshops followed.",
+    image: "/images/milestones/04_workshops.png"
   },
   {
-    id: 5,
-    date: "October 2023",
-    title: "Blockchain Conference",
-    description: "Hosted our first international blockchain conference with speakers from around the world and over 200 attendees.",
-    image: "/images/milestones/conference.jpg"
+    date: "September 2023",
+    title: "TUM Blockchain Conference",
+    description: "An ABC delegation attended the first TUM Blockchain Conference, supporting fellow student groups and contributing where possible.",
+    image: "/images/milestones/05_tumconference.jpg"
   },
   {
-    id: 6,
-    date: "February 2024",
-    title: "Innovation Lab Launch",
-    description: "Launched our blockchain innovation lab, providing resources and mentorship for student projects and startups.",
-    image: "/images/milestones/lab.jpg"
+  date: "March 2024",
+  title: "Superteam Germany Partnership",
+  description: "We formed our first partnership to accelerate blockchain adoption with no other than Superteam Germany. The close collaboration continues today, with many ABC members becoming part of Superteam Germany.",
+  image: "/images/milestones/06_superteam.jpg"
+  },
+  {
+    date: "July 2024",
+    title: "ETH CC Brussels Trip",
+    description: "Twelve ABC members traveled to ETH CC, where we met Ethereum founder Vitalik Buterin in a private AMA together with MegaETH.",
+    image: "/images/milestones/07_ethcc.png"
+  },
+  {
+    date: "February 2025",
+    title: "Celestia Hackathon Build Station",
+    description: "We hosted the only month-long build station in Germany for the global Celestia Mammothon hackathon with a price pool of $250k, bringing builders together in Aachen.",
+    image: "/images/milestones/08_celestia.png"
+  },
+  {
+    date: "August 2025",
+    title: "10 Year Ethereum Party",
+    description: "We hosted a celebration in Aachen for Ethereum’s 10th birthday in partnership with the Ethereum Foundation.",
+    image: "/images/milestones/09_ethereum.jpg"
   }
-]; 
+
+];

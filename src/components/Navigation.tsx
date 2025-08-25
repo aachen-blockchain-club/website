@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import logo from "@/images/ABC.white.png";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -22,7 +21,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
             <Image
-              src={logo}
+              src="/images/ABC.white.png"
               alt="ABC Logo"
               width={120}
               height={50}
