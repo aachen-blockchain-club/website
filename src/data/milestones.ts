@@ -8,13 +8,13 @@ interface Milestone {
 export const milestones: Milestone[] = [
   {
     date: "May 2015",
-    title: "First Bitcoin Meetup",
-    description: "The first student-led blockchain initiative in Germany was launched in Aachen under the name Bitcoin-Aachen, hosting monthly meetups.",
+    title: "Bitcoin Meetups",
+    description: "The first student-led blockchain initiative in Germany was established in Aachen under the name Bitcoin-Aachen, hosting monthly meetups.",
     image: "/images/milestones/01_bitcoinaachen.png"
   },
   {
     date: "November 2021",
-    title: "Blockchain Meetup",
+    title: "Blockchain Meetups",
     description: "Focus shifted to broader blockchain topics, with bi-weekly meetups mostly online due to Covid19.",
     image: "/images/milestones/02_first-abc-meetup.png"
   },
@@ -22,7 +22,7 @@ export const milestones: Milestone[] = [
     date: "October 2022",
     title: "Founding of Aachen Blockchain Club",
     description: "Eight founding members established ABC as a non-profit student initiative to build a sustainable, impact-driven club.",
-    image: "/images/milestones/03_foundation.jpeg"
+    image: "/images/milestones/03_foundation.png"
   },
   {
     date: "May 2023",
@@ -34,13 +34,13 @@ export const milestones: Milestone[] = [
     date: "September 2023",
     title: "TUM Blockchain Conference",
     description: "An ABC delegation attended the first TUM Blockchain Conference, supporting fellow student groups and contributing where possible.",
-    image: "/images/milestones/05_tumconference.jpg"
+    image: "/images/milestones/05_tumconference.png"
   },
   {
   date: "March 2024",
   title: "Superteam Germany Partnership",
   description: "We formed our first partnership to accelerate blockchain adoption with no other than Superteam Germany. The close collaboration continues today, with many ABC members becoming part of Superteam Germany.",
-  image: "/images/milestones/06_superteam.jpg"
+  image: "/images/milestones/06_superteam.png"
   },
   {
     date: "July 2024",
@@ -58,7 +58,7 @@ export const milestones: Milestone[] = [
     date: "August 2025",
     title: "10 Year Ethereum Party",
     description: "We hosted a celebration in Aachen for Ethereum’s 10th birthday in partnership with the Ethereum Foundation.",
-    image: "/images/milestones/09_ethereum.jpg"
+    image: "/images/milestones/09_ethereum.png"
   }
 
 ];

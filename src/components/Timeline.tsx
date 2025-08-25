@@ -115,8 +115,8 @@ export default function Timeline({ milestones }: TimelineProps) {
               Be Part of Our Next Milestone
             </h3>
             <p className="text-gray-300 text-lg mb-6 max-w-2xl mx-auto">
-              Shape the future of blockchain technology. 
-              Your journey starts here.
+              Shape the future with blockchain. 
+              Start your journey now.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -125,9 +125,6 @@ export default function Timeline({ milestones }: TimelineProps) {
             >
               Join ABC Today
             </motion.button>
-            <p className="text-gray-400 text-sm mt-4">
-              Ready to make blockchain history with us?
-            </p>
           </div>
         </motion.div>
       </div>
