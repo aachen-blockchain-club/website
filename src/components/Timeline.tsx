@@ -9,6 +9,7 @@ interface TimelineProps {
     title: string;
     description: string;
     image: string;
+    url?: string;
   }[];
 }
 
@@ -61,28 +62,64 @@ export default function Timeline({ milestones }: TimelineProps) {
               <div className={`w-full sm:w-5/12 ml-7 mr-6 sm:ml-0 sm:mr-0 ${
                 index % 2 === 0 ? 'sm:mr-auto sm:pr-8' : 'sm:ml-auto sm:pl-8'
               }`}>
-                <div className="group bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.025] hover:shadow-2xl hover:shadow-purple-500/20 mt-8 sm:mt-0">
-                  {/* Image */}
-                  <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <Image
-                      src={milestone.image}
-                      alt={milestone.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  </div>
+                {milestone.url ? (
+                  <a
+                    href={milestone.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.025] hover:shadow-2xl hover:shadow-purple-500/20 mt-8 sm:mt-0 cursor-pointer"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 sm:h-56 overflow-hidden">
+                      <Image
+                        src={milestone.image}
+                        alt={milestone.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      {/* Link indicator */}
+                      <div className="absolute top-4 right-4 w-8 h-8 bg-purple-500/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                      {milestone.description}
-                    </p>
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                        {milestone.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        {milestone.description}
+                      </p>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="group bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.025] hover:shadow-2xl hover:shadow-purple-500/20 mt-8 sm:mt-0">
+                    {/* Image */}
+                    <div className="relative h-48 sm:h-56 overflow-hidden">
+                      <Image
+                        src={milestone.image}
+                        alt={milestone.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                        {milestone.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        {milestone.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Connecting Line for Mobile */}
