@@ -52,6 +52,16 @@ export default function Navigation() {
               About
             </Link>
             <Link
+              href="/team"
+              className={`px-3 py-2 rounded-full text-sm transition-colors duration-300 ${
+                isActive("/team")
+                  ? "bg-purple-600 text-white"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Team
+            </Link>
+            <Link
               href="/events"
               className={`px-3 py-2 rounded-full text-sm transition-colors duration-300 ${
                 isActive("/events")
@@ -118,6 +128,16 @@ export default function Navigation() {
             }`}
           >
             About
+          </Link>
+          <Link
+            href="/team"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              isActive("/team")
+                ? "bg-purple-600 text-white"
+                : "text-gray-300 hover:bg-gray-700 hover:text-white"
+            }`}
+          >
+            Team
           </Link>
           <Link
             href="/events"

@@ -1,7 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import CryptoBackground from "@/components/CryptoBackground";
+import { landingPageItems, LandingPageItem } from "@/data/landing";
 
 export default function Home() {
+  // Filter items by category
+  const educationItems = landingPageItems.filter(item => item.category === 'Education');
+  const partnershipsItems = landingPageItems.filter(item => item.category === 'Partnerships');
+  const communityItems = landingPageItems.filter(item => item.category === 'Community');
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white">
       <CryptoBackground />
@@ -40,62 +47,243 @@ export default function Home() {
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-purple-400">
-          Member Benefits
+          Our Mission
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-purple-400">
-              Learn
+            <div className="relative w-16 h-16 mx-auto mb-4">
+              <Image
+                src="/images/community.png"
+                alt="Community"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-purple-400 text-center">
+              Community
             </h3>
-            <p className="text-gray-300 text-sm sm:text-base">
-              Access educational resources and workshops led by blockchain
-              experts. Dive deep into research and hands-on experiences with
-              cutting-edge technology.
+            <p className="text-gray-300 text-sm sm:text-base text-center">
+              Foster a community of students who are passionate about Blockchain 
+              technology and provide a platform for them to connect and collaborate.
             </p>
           </div>
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-purple-400">
-              Connect
+            <div className="relative w-16 h-16 mx-auto mb-4">
+              <Image
+                src="/images/partnerships.png"
+                alt="Partnerships"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-purple-400 text-center">
+              Partnerships
             </h3>
-            <p className="text-gray-300 text-sm sm:text-base">
-              Network with fellow blockchain enthusiasts and industry
-              professionals. Join a dynamic community focused on blockchain
-              innovation.
+            <p className="text-gray-300 text-sm sm:text-base text-center">
+              Establish partnerships and connections with industry leaders in the 
+              Blockchain and web3 space.
             </p>
           </div>
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-purple-400">
-              Build
+            <div className="relative w-16 h-16 mx-auto mb-4">
+              <Image
+                src="/images/science.png"
+                alt="Education"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-purple-400 text-center">
+              Education
             </h3>
-            <p className="text-gray-300 text-sm sm:text-base">
-              Participate in hackathons, gain hands-on experience with
-              blockchain projects, and develop your career in the blockchain
-              field.
+            <p className="text-gray-300 text-sm sm:text-base text-center">
+              Promote scientific development and educate students in the field of 
+              Blockchain technology.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Latest Updates Section */}
+      {/* Our Activities Section */}
       <div className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold text-center mb-12 text-purple-400">
-          Latest Updates
+          Our Activities
         </h2>
-        <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8">
-          <h3 className="text-xl font-bold mb-4 text-purple-400">
-            Real World Assets (RWAs)- Key bridge between decentralized and
-            traditional finance
-          </h3>
-          <p className="text-gray-300 mb-4">
-            Explore how Web 3.0, Blockchain, and RWAs are transforming the
-            financial landscape. Join us in understanding the bridge between
-            decentralized and traditional finance.
+        
+        {/* Learn Section */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold mb-4 text-purple-300">Learn</h3>
+          <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+            Learn what Blockchain is and how to use it through curated workshops and hands-on sessions with web3 experts.
           </p>
+          <div className="relative">
+            {educationItems.map((item, index) => (
+              <div 
+                key={index} 
+                className={`bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden group hover:scale-105 transition-transform duration-300 ${
+                  index % 2 === 0 ? 'ml-0 mr-auto w-3/4' : 'ml-auto mr-0 w-3/4'
+                } ${index === 1 ? '-mt-8' : 'mb-2'} ${index === 2 ? '-mt-6' : ''}`}
+                style={{
+                  transform: index % 2 === 0 ? 'rotate(-1deg)' : 'rotate(1deg)',
+                  zIndex: educationItems.length - index,
+                }}
+              >
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative h-64 lg:h-80 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.description || 'Education Event'}
+                        fill
+                        className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      />
+                    </div>
+                    {item.description && (
+                      <div className="p-6">
+                        <p className="text-gray-300 text-base">{item.description}</p>
+                      </div>
+                    )}
+                  </a>
+                ) : (
+                  <div>
+                    <div className="relative h-64 lg:h-80 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.description || 'Education Event'}
+                        fill
+                        className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      />
+                    </div>
+                    {item.description && (
+                      <div className="p-6">
+                        <p className="text-gray-300 text-base">{item.description}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Industry Section */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold mb-4 text-purple-300">Grow</h3>
+          <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+            Kick-start your career in blockchain by connecting with industry leaders and traveling to conferences around the world. Take part in hackathons to turn your startup ideas into reality.
+          </p>
+          <div className="relative">
+            {partnershipsItems.map((item, index) => (
+              <div 
+                key={index} 
+                className={`bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden group hover:scale-105 transition-transform duration-300 ${
+                  index % 2 === 1 ? 'ml-0 mr-auto w-3/4' : 'ml-auto mr-0 w-3/4'
+                } ${index === 1 ? '-mt-10' : 'mb-2'} ${index === 2 ? '-mt-12' : ''}`}
+                style={{
+                  transform: index % 2 === 1 ? 'rotate(-2deg)' : 'rotate(1.5deg)',
+                  zIndex: partnershipsItems.length - index,
+                }}
+              >
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative h-64 lg:h-80 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.description || 'Partnership Event'}
+                        fill
+                        className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      />
+                    </div>
+                    {item.description && (
+                      <div className="p-6">
+                        <p className="text-gray-300 text-base">{item.description}</p>
+                      </div>
+                    )}
+                  </a>
+                ) : (
+                  <div>
+                    <div className="relative h-64 lg:h-80 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.description || 'Partnership Event'}
+                        fill
+                        className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      />
+                    </div>
+                    {item.description && (
+                      <div className="p-6">
+                        <p className="text-gray-300 text-base">{item.description}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Community Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-4 text-purple-300">Connect</h3>
+          <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+            Join a community of like-minded students who share a passion for Blockchain. Connect with others, exchange ideas, grow together and of course have fun along the way!
+          </p>
+          <div className="relative">
+            {communityItems.map((item, index) => (
+              <div 
+                key={index} 
+                className={`bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden group hover:scale-105 transition-transform duration-300 ${
+                  index % 2 === 0 ? 'ml-0 mr-auto w-3/4' : 'ml-auto mr-0 w-3/4'
+                } ${index === 1 ? '-mt-8' : 'mb-2'} ${index === 2 ? '-mt-10' : ''}`}
+                style={{
+                  transform: index % 2 === 0 ? 'rotate(0.5deg)' : 'rotate(-1.5deg)',
+                  zIndex: communityItems.length - index,
+                }}
+              >
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative h-64 lg:h-80 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.description || 'Community Event'}
+                        fill
+                        className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      />
+                    </div>
+                    {item.description && (
+                      <div className="p-6">
+                        <p className="text-gray-300 text-base">{item.description}</p>
+                      </div>
+                    )}
+                  </a>
+                ) : (
+                  <div>
+                    <div className="relative h-64 lg:h-80 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.description || 'Community Event'}
+                        fill
+                        className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      />
+                    </div>
+                    {item.description && (
+                      <div className="p-6">
+                        <p className="text-gray-300 text-base">{item.description}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className="text-center mt-8">
           <Link
-            href="/blog"
-            className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+            href="/events"
+            className="inline-block px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-all duration-300"
           >
-            Read more →
+            View All Events
           </Link>
         </div>
       </div>
