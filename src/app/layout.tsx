@@ -7,10 +7,12 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aachen Blockchain Club",
-  description:
-    "Exploring the Future of Web3 Technology at RWTH Aachen University",
-};
+  title: 'Aachen Blockchain Club',
+  description: 'Exploring the Future of Web3 Technology at RWTH Aachen University',
+  icons: {
+    icon: '/website/favicon.ico'
+  }
+}
 
 export default function RootLayout({
   children,

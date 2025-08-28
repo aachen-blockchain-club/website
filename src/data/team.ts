@@ -47,10 +47,10 @@ export const teamMembers: TeamMember[] = [
     image: 'images/profiles/lennart.png',
   },
   {
-    name: 'Ashwin Kumar Karnad',
-    title: 'Industry Team Lead',
-    team: 'team heads',
-    image: 'images/profiles/aschwin.png',
+    name: 'Sascha Nievelstein',
+    title: '',
+    team: 'member',
+    image: 'images/profiles/sascha.png',
   },
   {
     name: 'Ki Wook Kim',
