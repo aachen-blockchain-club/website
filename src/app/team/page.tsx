@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { teamMembers as allTeamMembers, teams } from "@/data/team";
+import { teamMembers as allTeamMembers } from "@/data/team";
 import { TeamMember } from "@/types/member";
 import Link from "next/link";
 

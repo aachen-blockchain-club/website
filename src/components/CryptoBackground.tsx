@@ -102,10 +102,11 @@ export default function CryptoBackground() {
 
     return () => {
       intervals.forEach((timeout) => clearTimeout(timeout));
+      // Capture the current value of the ref to avoid stale closure
       const currentIntervals = chainIntervalsRef.current;
       currentIntervals.forEach((interval) => clearInterval(interval));
     };
-  }, []);
+  }, [maxBlocksPerChain]); // Add maxBlocksPerChain to dependencies
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">

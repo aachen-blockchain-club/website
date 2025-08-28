@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CryptoBackground from "@/components/CryptoBackground";
-import { landingPageItems, LandingPageItem } from "@/data/landing";
+import { landingPageItems } from "@/data/landing";
 import fs from 'fs';
 import path from 'path';
 
@@ -309,7 +309,7 @@ export default function Home() {
         <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 mt-16">
           <h3 className="text-2xl font-bold text-center mb-4 text-purple-300">Ready to Start Your Blockchain Journey?</h3>
           <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
-            Become part of Aachen's most active blockchain community and start your journey in web3.
+            Become part of Aachen&apos;s most active blockchain community and start your journey in web3.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
@@ -367,7 +367,7 @@ export default function Home() {
             Partnering with Industry Leaders
           </h2>
           <p className="text-gray-300 text-center mb-8 max-w-3xl mx-auto text-lg">
-            We've had the privilege to collaborate and work with renowned experts and organizations
+            We&apos;ve had the privilege to collaborate and work with renowned experts and organizations
             in the blockchain space, bringing world-class knowledge to our community.
           </p>
           

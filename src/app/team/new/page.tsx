@@ -1,12 +1,21 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import Image from 'next/image';
-import { TeamMember } from '@/types/member';
 import ReactCrop, { Crop, PixelCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 type TeamOption = "board" | "advisory" | "team heads" | "member" | "alumni";
+
+interface PRInstructions {
+  branchName: string;
+  commitMessage: string;
+  prBody: string;
+  filename: string;
+  memberEntry: string;
+  newBranchUrl: string;
+  compareUrl: string;
+  imagePath: string;
+}
 
 export default function NewTeamMemberPage() {
   const [formData, setFormData] = useState({
@@ -30,7 +39,7 @@ export default function NewTeamMemberPage() {
   const [completedCrop, setCompletedCrop] = useState<PixelCrop | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
-  const [prInstructions, setPrInstructions] = useState<any>(null);
+  const [prInstructions, setPrInstructions] = useState<PRInstructions | null>(null);
   const [imageBlob, setImageBlob] = useState<Blob | null>(null);
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -238,7 +247,7 @@ export default function NewTeamMemberPage() {
           Join Our Team
         </h1>
         <p className="text-center text-gray-300 mb-12">
-          Fill out the form below to prepare your team member submission. You'll then create a GitHub pull request using your own account - no server tokens needed!
+          Fill out the form below to prepare your team member submission. You&apos;ll then create a GitHub pull request using your own account - no server tokens needed!
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -357,7 +366,7 @@ export default function NewTeamMemberPage() {
             
             <div>
               <label htmlFor="image" className="block text-sm font-medium mb-2">
-                Upload Photo (you'll be able to crop it to a square)
+                Upload Photo (you&apos;ll be able to crop it to a square)
               </label>
               <input
                 type="file"
@@ -384,6 +393,7 @@ export default function NewTeamMemberPage() {
                     minHeight={50}
                     className="max-w-full border border-gray-600 rounded-lg overflow-hidden"
                   >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       ref={imageRef}
                       src={imagePreview}
@@ -461,11 +471,11 @@ export default function NewTeamMemberPage() {
                 <div>
                   <h4 className="font-semibold mb-2">Step 3: Create Pull Request</h4>
                   <p className="text-sm text-gray-300 mb-3">
-                    Click the button below to go to GitHub. You'll need to:
+                    Click the button below to go to GitHub. You&apos;ll need to:
                   </p>
                   <ol className="text-sm text-gray-300 list-decimal list-inside space-y-1 mb-4">
                     <li>Upload your image to <code className="bg-black/30 px-1 rounded">public/images/profiles/</code></li>
-                    <li>Edit <code className="bg-black/30 px-1 rounded">src/data/team.ts</code> and paste your code before the "Add more members here" comment</li>
+                    <li>Edit <code className="bg-black/30 px-1 rounded">src/data/team.ts</code> and paste your code before the &quot;Add more members here&quot; comment</li>
                     <li>Create a pull request with the title: <code className="bg-black/30 px-1 rounded">{prInstructions.commitMessage}</code></li>
                   </ol>
                   

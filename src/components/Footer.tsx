@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-lg font-bold text-white">Aachen Blockchain Club e.V.</span>
             </div>
             <p className="text-gray-300 text-sm max-w-md mx-auto md:mx-0">
-              Empowering Aachen's blockchain community through education, partnerships and innovation.
+              Empowering Aachen&apos;s blockchain community through education, partnerships and innovation.
             </p>
           </div>
 
