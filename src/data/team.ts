@@ -2,55 +2,84 @@ import { TeamMember } from '../types/member';
 
 export const teamMembers: TeamMember[] = [
   {
-    id: '1',
-    name: 'Donald Trump',
+    name: 'Mikolaj Radlinski',
     title: 'President',
-    team: 'Board',
-    image: '/team/placeholder.png',
+    team: 'board',
+    image: '/images/profiles/mike.png',
     socialLinks: {
-      linkedin: 'https://linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe'
+      x: 'https://x.com/MikePawel',
+      github: 'https://github.com/MikePawel'
     }
   },
   {
-    id: '2',
-    name: 'JD Vance',
+    name: 'Ivan Dimitrov',
     title: 'Vice President',
-    team: 'Board',
-    image: '/team/placeholder.png',
+    team: 'board',
+    image: '/images/profiles/ivan.png',
     socialLinks: {
-      linkedin: 'https://linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe'
+      x: 'https://x.com/IvanE1E1'
     }
   },
   {
-    id: '3',
-    name: 'Musk',
-    title: 'D.O.G.E',
-    team: 'Board',
-    image: '/team/placeholder.png',
+    name: 'Santhosh Senthil Kumar',
+    title: 'Treasurer & R&D Team Lead',
+    team: 'board',
+    image: '/images/profiles/santhosch.png',
     socialLinks: {
-      linkedin: 'https://linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe'
+      x: 'https://x.com/sant18z',
+      github: 'https://github.com/santy311'
     }
   },
   {
-    id: '4',
-    name: 'Some Guy',
-    title: 'Advisory',
-    team: 'Advisory',
-    image: '/team/placeholder.png',
+    name: 'Ahoura Azarbin',
+    title: '',
+    team: 'advisory',
+    image: '/images/profiles/ahoura.png',
     socialLinks: {
-      linkedin: 'https://linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe'
+      x: 'https://x.com/ahoura_az',
+      github: 'https://github.com/Aghostraa'
+    }
+  },
+  {
+    name: 'Lennart Czardybon',
+    title: 'Community Team Lead',
+    team: 'team heads',
+    image: '/images/profiles/lennart.png',
+  },
+  {
+    name: 'Ashwin Kumar Karnad',
+    title: 'Industry Team Lead',
+    team: 'team heads',
+    image: '/images/profiles/aschwin.png',
+  },
+  {
+    name: 'Ki Wook Kim',
+    title: '',
+    team: 'member',
+    image: '/images/profiles/kim.png',
+  },
+  {
+    name: 'Lorenz Lehmann',
+    title: 'Founding Member',
+    team: 'advisory',
+    image: '/images/profiles/lorenz.png',
+    socialLinks: {
+      x: 'https://x.com/LehmannLorenz',
+      github: 'https://github.com/lorenz234'
+    }
+  },
+  {
+    name: 'Arpad Djuraki',
+    title: '',
+    team: 'advisory',
+    image: '/images/profiles/arpad.png',
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/arpad-djuraki/'
     }
   },
   
   // Add more members here
+
 ];
 
-export const teams = ['Board', 'R&D', 'Industry', 'Events', 'Advisory'] as const; 
+export const teams = ['board', 'advisory', 'team heads', 'member', 'alumni'] as const; 

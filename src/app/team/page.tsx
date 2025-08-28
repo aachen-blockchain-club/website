@@ -4,6 +4,15 @@ import { TeamMember } from "@/types/member";
 import Link from "next/link";
 
 export default function TeamPage() {
+  // Define teams in the correct order with their display names
+  const teamsWithHeaders = [
+    { key: 'board', header: 'Board Members' },
+    { key: 'team heads', header: 'Team Heads' },
+    { key: 'member', header: 'Members' },
+    { key: 'advisory', header: 'Advisory Board' },
+    { key: 'alumni', header: 'Alumnis' }
+  ] as const;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -13,11 +22,10 @@ export default function TeamPage() {
             Our Team
           </h1>
           <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
-            Meet the passionate individuals driving innovation in blockchain
-            technology at Aachen Blockchain Club.
+            Meet the passionate individuals of Aachen Blockchain Club.
           </p>
 
-          {teams.map((team) => {
+          {teamsWithHeaders.map(({ key: team, header }) => {
             const teamMembers = allTeamMembers.filter(
               (member: TeamMember) => member.team === team
             );
@@ -25,20 +33,21 @@ export default function TeamPage() {
             return teamMembers.length > 0 ? (
               <div key={team} className="mb-16">
                 <h2 className="text-2xl font-bold mb-8 text-purple-400">
-                  {team === "Board" ? "Board" : team + " Team"}
+                  {header}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {teamMembers.map((member: TeamMember) => (
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                  {teamMembers.map((member: TeamMember, index: number) => (
                     <div
-                      key={member.id}
+                      key={`${member.name}-${index}`}
                       className="group relative overflow-hidden rounded-xl bg-white/5 p-6 backdrop-blur-lg hover:bg-white/10 transition-all duration-300"
                     >
-                      <div className="relative h-48 w-48 mx-auto mb-4 rounded-full overflow-hidden">
+                      <div className="relative h-48 w-48 mx-auto mb-4 rounded-lg overflow-hidden">
                         <Image
                           src={member.image}
                           alt={member.name}
-                          fill
-                          className="object-cover"
+                          width={620}
+                          height={620}
+                          className="object-cover w-full h-full"
                         />
                       </div>
                       <h3 className="text-xl font-semibold text-center mb-2">
@@ -67,9 +76,9 @@ export default function TeamPage() {
                               </svg>
                             </Link>
                           )}
-                          {member.socialLinks.twitter && (
+                          {member.socialLinks.x && (
                             <Link
-                              href={member.socialLinks.twitter}
+                              href={member.socialLinks.x}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-gray-400 hover:text-purple-400 transition-colors"
@@ -80,7 +89,7 @@ export default function TeamPage() {
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
                               >
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                               </svg>
                             </Link>
                           )}

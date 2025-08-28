@@ -1,12 +1,11 @@
 export interface TeamMember {
-  id: string;
   name: string;
   title: string;
-  team: string;
+  team: "board" | "advisory" | "team heads" | "member" | "alumni";
   image: string;
   socialLinks?: {
     linkedin?: string;
-    twitter?: string;
+    x?: string;
     github?: string;
   };
 } 
