@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { getImagePath } from "@/lib/imagePath";
 
 interface TimelineProps {
   milestones: {
@@ -72,7 +73,7 @@ export default function Timeline({ milestones }: TimelineProps) {
                     {/* Image */}
                     <div className="relative h-48 sm:h-56 overflow-hidden">
                       <Image
-                        src={milestone.image}
+                        src={getImagePath(milestone.image)}
                         alt={milestone.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -101,7 +102,7 @@ export default function Timeline({ milestones }: TimelineProps) {
                     {/* Image */}
                     <div className="relative h-48 sm:h-56 overflow-hidden">
                       <Image
-                        src={milestone.image}
+                        src={getImagePath(milestone.image)}
                         alt={milestone.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
