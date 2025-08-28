@@ -66,7 +66,7 @@ export default function Footer() {
               >
                 <div className="w-5 h-5 relative">
                   <Image
-                    src="images/linktree.webp"
+                    src="/images/linktree.webp"
                     alt="Linktree"
                     fill
                     className="object-contain brightness-0 invert opacity-60 group-hover:opacity-0 transition-all duration-300"
