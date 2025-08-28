@@ -8,7 +8,8 @@ export function getImagePath(imagePath: string): string {
   const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
   
   // For GitHub Pages deployment, we need to add the basePath
-  if (process.env.NODE_ENV === 'production' && process.env.GITHUB_PAGES) {
+  // The GITHUB_PAGES environment variable should be set to 'true' as a string
+  if (process.env.NODE_ENV === 'production' && process.env.GITHUB_PAGES === 'true') {
     return `/website/${cleanPath}`;
   }
   
