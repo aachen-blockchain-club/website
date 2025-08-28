@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="space-y-3 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start">
-              <span className="text-lg font-bold text-white">Aachen Blockchain Club</span>
+              <span className="text-lg font-bold text-white">Aachen Blockchain Club e.V.</span>
             </div>
             <p className="text-gray-300 text-sm max-w-md mx-auto md:mx-0">
               Empowering Aachen's blockchain community through education, partnerships and innovation.
@@ -69,8 +69,19 @@ export default function Footer() {
                     src="/images/linktree.webp"
                     alt="Linktree"
                     fill
-                    className="object-contain brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert group-hover:hue-rotate-180 group-hover:saturate-200 transition-all duration-300"
+                    className="object-contain brightness-0 invert opacity-60 group-hover:opacity-0 transition-all duration-300"
                   />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{
+                    background: 'rgb(192, 132, 252)', // This is the exact purple-400 color
+                    maskImage: 'url(/images/linktree.webp)',
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                    WebkitMaskImage: 'url(/images/linktree.webp)',
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center'
+                  }}></div>
                 </div>
               </a>
             </div>
@@ -80,7 +91,7 @@ export default function Footer() {
                 href="/imprint"
                 className="text-gray-400 hover:text-purple-400 transition-colors duration-300 text-sm"
               >
-                Imprint
+                Impressum
               </Link>
             </div>
           </div>
