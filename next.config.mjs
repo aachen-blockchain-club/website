@@ -7,11 +7,9 @@ const nextConfig = {
     remotePatterns: [],
     domains: [],
   },
-  // Only add basePath for GitHub Pages deployment
-  ...(process.env.GITHUB_PAGES && {
-    basePath: '/website',
-    assetPrefix: '/website',
-  }),
+  // GitHub Pages deployment configuration
+  basePath: process.env.GITHUB_PAGES ? '/website' : '',
+  assetPrefix: process.env.GITHUB_PAGES ? '/website' : '',
 };
 
 export default nextConfig;

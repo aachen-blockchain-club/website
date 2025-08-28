@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/ABC.white.png"
+              src="images/ABC.white.png"
               alt="ABC Logo"
               width={120}
               height={50}

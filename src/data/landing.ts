@@ -14,46 +14,46 @@ export interface LandingPageItem {
 export const landingPageItems: LandingPageItem[] = [
     // Community
     {
-        image: '/images/landing_page/10yethereum.PNG',
+        image: 'images/landing_page/10yethereum.PNG',
         category: 'Community',
         heading: 'Ethereum 10 Year Anniversary',
     },
     {
-        image: '/images/landing_page/berlin.JPG',
+        image: 'images/landing_page/berlin.JPG',
         category: 'Community',
     },
     {
-        image: '/images/landing_page/games.jpg',
+        image: 'images/landing_page/games.jpg',
         category: 'Community',
     },
     {
-        image: '/images/landing_page/food.jpg',
+        image: 'images/landing_page/food.jpg',
         category: 'Community',
     },
     // Partnerships
     {
-        image: '/images/landing_page/vitalik.jpg',
+        image: 'images/landing_page/vitalik.jpg',
         category: 'Partnerships',
     },
     {
-        image: '/images/landing_page/ecosystem_sol.jpg',
+        image: 'images/landing_page/ecosystem_sol.jpg',
         category: 'Partnerships',
     },
     {
-        image: '/images/landing_page/istanbul.JPG',
+        image: 'images/landing_page/istanbul.JPG',
         category: 'Partnerships',
     },
     // Education
     {
-        image: '/images/landing_page/learn.jpg',
+        image: 'images/landing_page/learn.jpg',
         category: 'Education',
     },
     {
-        image: '/images/landing_page/chainlink.jpg',
+        image: 'images/landing_page/chainlink.jpg',
         category: 'Education',
     },
     {
-        image: '/images/landing_page/merkle.jpg',
+        image: 'images/landing_page/merkle.jpg',
         category: 'Education',
     },
 ];

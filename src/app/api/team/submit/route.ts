@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,23 +18,13 @@ export async function POST(request: NextRequest) {
 
     // Create filename from name
     const filename = `${name.toLowerCase().replace(/\s+/g, '-')}.png`;
-    
-    // Save image to public/images/profiles locally for reference
-    const bytes = await imageFile.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    
-    const imagePath = join(process.cwd(), 'public', 'images', 'profiles', filename);
-    
-    // Ensure directory exists
-    await mkdir(join(process.cwd(), 'public', 'images', 'profiles'), { recursive: true });
-    await writeFile(imagePath, buffer);
 
     // Create new team member object for the code
     const newMember = {
       name,
       title,
       team,
-      image: `/images/profiles/${filename}`,
+      image: `images/profiles/${filename}`,
       socialLinks: {
         ...(linkedin && { linkedin }),
         ...(x && { x }),
@@ -49,7 +37,7 @@ export async function POST(request: NextRequest) {
     name: '${name}',
     title: '${title}',
     team: '${team}',
-    image: '/images/profiles/${filename}',${Object.keys(newMember.socialLinks).length > 0 ? `
+    image: 'images/profiles/${filename}',${Object.keys(newMember.socialLinks).length > 0 ? `
     socialLinks: {${linkedin ? `
       linkedin: '${linkedin}'` : ''}${x ? `${linkedin ? ',' : ''}
       x: '${x}'` : ''}${github ? `${linkedin || x ? ',' : ''}
@@ -72,38 +60,42 @@ ${linkedin ? `- LinkedIn: ${linkedin}` : ''}
 ${x ? `- X/Twitter: ${x}` : ''}
 ${github ? `- GitHub: ${github}` : ''}
 
-### Instructions for completing this PR:
+This PR adds ${name} to the team page with their profile image and social links.
 
-1. **Upload the profile image:**
-   - Add the file \`${filename}\` to \`public/images/profiles/\`
-   - Download the image from the form submission
+### Files Changed:
+- \`public/images/profiles/${filename}\` (new profile image)
+- \`src/data/team.ts\` (updated team data)
 
-2. **Update team data:**
-   - Edit \`src/data/team.ts\`
-   - Add this code before the \`// Add more members here\` comment:
+Generated from the team member submission form.`;
 
-\`\`\`typescript
-${memberEntry}
-\`\`\`
-
-This PR was generated from the team member submission form.`;
-
-    // Create the GitHub URLs for easy PR creation
+    // Create GitHub URLs for pre-filled PR creation
     const baseUrl = 'https://github.com/aachen-blockchain-club/website';
-    const newBranchUrl = `${baseUrl}/new/main`;
-    const compareUrl = `${baseUrl}/compare/main...${branchName}`;
+    
+    // URL to edit team.ts file directly (will need to manually add the member entry)
+    const editTeamFileUrl = `${baseUrl}/edit/main/src/data/team.ts`;
+    
+    // URL to upload new image file
+    const uploadImageUrl = `${baseUrl}/upload/main/public/images/profiles`;
+    
+    // URL to create a new pull request with pre-filled title and body
+    const createPRUrl = `${baseUrl}/compare/main...main?quick_pull=1&title=${encodeURIComponent(commitMessage)}&body=${encodeURIComponent(prBody)}`;
+    
+    // Alternative: Direct fork and create branch URL
+    const forkUrl = `${baseUrl}/fork`;
 
     return NextResponse.json({ 
       success: true, 
-      message: 'Team member data prepared! Follow the instructions to create your GitHub PR.',
+      message: 'Team member data prepared! Use the quick links to create your GitHub PR.',
       instructions: {
         branchName,
         commitMessage,
         prBody,
         filename,
         memberEntry,
-        newBranchUrl,
-        compareUrl,
+        editTeamFileUrl,
+        uploadImageUrl,
+        createPRUrl,
+        forkUrl,
         imagePath: `public/images/profiles/${filename}`
       }
     });

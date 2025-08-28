@@ -12,8 +12,10 @@ interface PRInstructions {
   prBody: string;
   filename: string;
   memberEntry: string;
-  newBranchUrl: string;
-  compareUrl: string;
+  editTeamFileUrl: string;
+  uploadImageUrl: string;
+  createPRUrl: string;
+  forkUrl: string;
   imagePath: string;
 }
 
@@ -155,13 +157,6 @@ export default function NewTeamMemberPage() {
     navigator.clipboard.writeText(text);
   };
 
-  const openGitHubPR = () => {
-    if (!prInstructions) return;
-    
-    const url = `https://github.com/aachen-blockchain-club/website/new/main`;
-    window.open(url, '_blank');
-  };
-
   const resetForm = () => {
     setFormData({
       name: '',
@@ -220,18 +215,12 @@ export default function NewTeamMemberPage() {
 
       if (response.ok) {
         const result = await response.json();
-        setSubmitMessage(`Success! ${result.message}`);
+        setSubmitMessage(`Instructions generated successfully! Please follow the steps below to create your GitHub PR.`);
         setPrInstructions(result.instructions);
         setImageBlob(croppedImageBlob);
-        
-        // Don't reset form yet - let user complete the PR first
       } else {
         const errorData = await response.json();
-        if (errorData.error.includes('GitHub integration not configured')) {
-          setSubmitMessage(`Configuration Error: ${errorData.error} Please contact the website administrator.`);
-        } else {
-          setSubmitMessage(`Error: ${errorData.error}`);
-        }
+        setSubmitMessage(`Error: ${errorData.error}`);
       }
     } catch (error) {
       setSubmitMessage(`Error: ${error}`);
@@ -247,7 +236,7 @@ export default function NewTeamMemberPage() {
           Join Our Team
         </h1>
         <p className="text-center text-gray-300 mb-12">
-          Fill out the form below to prepare your team member submission. You&apos;ll then create a GitHub pull request using your own account - no server tokens needed!
+          Fill out the form below to prepare your team member submission. You&apos;ll create a GitHub pull request manually using the generated instructions.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -429,7 +418,7 @@ export default function NewTeamMemberPage() {
             disabled={isSubmitting || !formData.name || !imageFile || !completedCrop}
             className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit Team Member Request'}
+            {isSubmitting ? 'Processing...' : 'Generate PR Instructions'}
           </button>
 
           {submitMessage && (
@@ -441,12 +430,15 @@ export default function NewTeamMemberPage() {
           {prInstructions && (
             <div className="bg-blue-500/20 border border-blue-400 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4 text-blue-300">
-                🚀 Create Your GitHub Pull Request
+                � GitHub Pull Request Instructions
               </h3>
               
               <div className="space-y-4">
                 <div>
                   <h4 className="font-semibold mb-2">Step 1: Download Your Profile Image</h4>
+                  <p className="text-sm text-gray-300 mb-3">
+                    Download the cropped image and save it to upload to GitHub:
+                  </p>
                   <button
                     onClick={downloadImage}
                     className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-medium transition-colors"
@@ -456,7 +448,51 @@ export default function NewTeamMemberPage() {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-2">Step 2: Copy Your Team Data</h4>
+                  <h4 className="font-semibold mb-2">Step 2: Quick GitHub Actions</h4>
+                  <p className="text-sm text-gray-300 mb-3">
+                    Use these quick links to streamline your PR creation:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                    <button
+                      onClick={() => window.open(prInstructions.forkUrl, '_blank')}
+                      className="bg-gray-700 hover:bg-gray-600 px-4 py-3 rounded-lg text-white font-medium transition-colors text-left"
+                    >
+                      <div className="text-sm font-semibold">🍴 Fork Repository</div>
+                      <div className="text-xs text-gray-300">Create your own copy</div>
+                    </button>
+                    
+                    <button
+                      onClick={() => window.open(prInstructions.uploadImageUrl, '_blank')}
+                      className="bg-green-700 hover:bg-green-600 px-4 py-3 rounded-lg text-white font-medium transition-colors text-left"
+                    >
+                      <div className="text-sm font-semibold">📁 Upload Image</div>
+                      <div className="text-xs text-gray-300">Add to profiles folder</div>
+                    </button>
+                    
+                    <button
+                      onClick={() => window.open(prInstructions.editTeamFileUrl, '_blank')}
+                      className="bg-orange-700 hover:bg-orange-600 px-4 py-3 rounded-lg text-white font-medium transition-colors text-left"
+                    >
+                      <div className="text-sm font-semibold">✏️ Edit team.ts</div>
+                      <div className="text-xs text-gray-300">Add your team data</div>
+                    </button>
+                    
+                    <button
+                      onClick={() => window.open(prInstructions.createPRUrl, '_blank')}
+                      className="bg-purple-700 hover:bg-purple-600 px-4 py-3 rounded-lg text-white font-medium transition-colors text-left"
+                    >
+                      <div className="text-sm font-semibold">🚀 Create PR</div>
+                      <div className="text-xs text-gray-300">Pre-filled template</div>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold mb-2">Step 3: Copy Your Team Data</h4>
+                  <p className="text-sm text-gray-300 mb-3">
+                    Copy this code to add to the team.ts file:
+                  </p>
                   <div className="bg-black/30 p-3 rounded-lg font-mono text-sm overflow-x-auto">
                     <pre className="whitespace-pre-wrap">{prInstructions.memberEntry}</pre>
                   </div>
@@ -469,21 +505,24 @@ export default function NewTeamMemberPage() {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-2">Step 3: Create Pull Request</h4>
+                  <h4 className="font-semibold mb-2">Step 3: Create Pull Request Manually</h4>
                   <p className="text-sm text-gray-300 mb-3">
-                    Click the button below to go to GitHub. You&apos;ll need to:
+                    Follow these steps on GitHub:
                   </p>
-                  <ol className="text-sm text-gray-300 list-decimal list-inside space-y-1 mb-4">
-                    <li>Upload your image to <code className="bg-black/30 px-1 rounded">public/images/profiles/</code></li>
-                    <li>Edit <code className="bg-black/30 px-1 rounded">src/data/team.ts</code> and paste your code before the &quot;Add more members here&quot; comment</li>
-                    <li>Create a pull request with the title: <code className="bg-black/30 px-1 rounded">{prInstructions.commitMessage}</code></li>
+                  <ol className="text-sm text-gray-300 list-decimal list-inside space-y-2 mb-4">
+                    <li>Fork the repository: <a href="https://github.com/aachen-blockchain-club/website" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">aachen-blockchain-club/website</a></li>
+                    <li>Create a new branch: <code className="bg-black/30 px-1 rounded">{prInstructions.branchName}</code></li>
+                    <li>Upload your image file to <code className="bg-black/30 px-1 rounded">public/images/profiles/{prInstructions.filename}</code></li>
+                    <li>Edit <code className="bg-black/30 px-1 rounded">src/data/team.ts</code> and paste your code before the &quot;// Add more members here&quot; comment</li>
+                    <li>Commit with message: <code className="bg-black/30 px-1 rounded">{prInstructions.commitMessage}</code></li>
+                    <li>Create a pull request from your branch to main</li>
                   </ol>
                   
                   <button
-                    onClick={openGitHubPR}
+                    onClick={() => window.open('https://github.com/aachen-blockchain-club/website', '_blank')}
                     className="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg text-white font-medium transition-colors"
                   >
-                    🚀 Open GitHub & Create PR
+                    🚀 Open GitHub Repository
                   </button>
                 </div>
 

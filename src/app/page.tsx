@@ -17,7 +17,7 @@ function getLogos() {
      name.endsWith('.svg') || name.endsWith('.webp') || name.endsWith('.gif'))
   );
   
-  return logoFiles.map(filename => `/images/logos/${filename}`);
+  return logoFiles.map(filename => `images/logos/${filename}`);
 }
 
 export default function Home() {
@@ -81,7 +81,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
             <div className="relative w-16 h-16 mx-auto mb-4">
               <Image
-                src="/images/community.png"
+                src="images/community.png"
                 alt="Community"
                 fill
                 className="object-contain"
@@ -98,7 +98,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
             <div className="relative w-16 h-16 mx-auto mb-4">
               <Image
-                src="/images/partnerships.png"
+                src="images/partnerships.png"
                 alt="Partnerships"
                 fill
                 className="object-contain"
@@ -115,7 +115,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
             <div className="relative w-16 h-16 mx-auto mb-4">
               <Image
-                src="/images/science.png"
+                src="images/science.png"
                 alt="Education"
                 fill
                 className="object-contain"
@@ -337,7 +337,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="relative w-64 h-64 flex-shrink-0 mx-auto md:mx-0">
                 <Image
-                  src="/images/prinz.jpeg"
+                  src="images/prinz.jpeg"
                   alt="Professor Prinz"
                   fill
                   className="object-contain rounded-2xl"
