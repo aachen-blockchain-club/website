@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CryptoBackground from "@/components/CryptoBackground";
 import { landingPageItems } from "@/data/landing";
+import { getImagePath } from "@/lib/imagePath";
 import fs from 'fs';
 import path from 'path';
 
@@ -17,7 +18,7 @@ function getLogos() {
      name.endsWith('.svg') || name.endsWith('.webp') || name.endsWith('.gif'))
   );
   
-  return logoFiles.map(filename => `/images/logos/${filename}`);
+  return logoFiles.map(filename => getImagePath(`/images/logos/${filename}`));
 }
 
 export default function Home() {
@@ -81,7 +82,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
             <div className="relative w-16 h-16 mx-auto mb-4">
               <Image
-                src="/images/community.png"
+                src={getImagePath("/images/community.png")}
                 alt="Community"
                 fill
                 className="object-contain"
@@ -98,7 +99,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
             <div className="relative w-16 h-16 mx-auto mb-4">
               <Image
-                src="/images/partnerships.png"
+                src={getImagePath("/images/partnerships.png")}
                 alt="Partnerships"
                 fill
                 className="object-contain"
@@ -115,7 +116,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-lg">
             <div className="relative w-16 h-16 mx-auto mb-4">
               <Image
-                src="/images/science.png"
+                src={getImagePath("/images/science.png")}
                 alt="Education"
                 fill
                 className="object-contain"
@@ -160,7 +161,7 @@ export default function Home() {
                   <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
                     <div className="relative h-64 lg:h-80 overflow-hidden">
                       <Image
-                        src={item.image}
+                        src={getImagePath(item.image)}
                         alt={item.description || 'Education Event'}
                         fill
                         className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
@@ -176,7 +177,7 @@ export default function Home() {
                   <div>
                     <div className="relative h-64 lg:h-80 overflow-hidden">
                       <Image
-                        src={item.image}
+                        src={getImagePath(item.image)}
                         alt={item.description || 'Education Event'}
                         fill
                         className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
@@ -216,7 +217,7 @@ export default function Home() {
                   <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
                     <div className="relative h-64 lg:h-80 overflow-hidden">
                       <Image
-                        src={item.image}
+                        src={getImagePath(item.image)}
                         alt={item.description || 'Partnership Event'}
                         fill
                         className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
@@ -232,7 +233,7 @@ export default function Home() {
                   <div>
                     <div className="relative h-64 lg:h-80 overflow-hidden">
                       <Image
-                        src={item.image}
+                        src={getImagePath(item.image)}
                         alt={item.description || 'Partnership Event'}
                         fill
                         className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
@@ -272,7 +273,7 @@ export default function Home() {
                   <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
                     <div className="relative h-64 lg:h-80 overflow-hidden">
                       <Image
-                        src={item.image}
+                        src={getImagePath(item.image)}
                         alt={item.description || 'Community Event'}
                         fill
                         className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
@@ -288,7 +289,7 @@ export default function Home() {
                   <div>
                     <div className="relative h-64 lg:h-80 overflow-hidden">
                       <Image
-                        src={item.image}
+                        src={getImagePath(item.image)}
                         alt={item.description || 'Community Event'}
                         fill
                         className="object-cover group-hover:scale-[1.025] transition-transform duration-500"
@@ -337,7 +338,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="relative w-64 h-64 flex-shrink-0 mx-auto md:mx-0">
                 <Image
-                  src="/images/prinz.jpeg"
+                  src={getImagePath("/images/prinz.jpeg")}
                   alt="Professor Prinz"
                   fill
                   className="object-contain rounded-2xl"

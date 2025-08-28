@@ -2,6 +2,7 @@ import Image from "next/image";
 import { teamMembers as allTeamMembers } from "@/data/team";
 import { TeamMember } from "@/types/member";
 import Link from "next/link";
+import { getImagePath } from "@/lib/imagePath";
 
 export default function TeamPage() {
   // Define teams in the correct order with their display names
@@ -43,7 +44,7 @@ export default function TeamPage() {
                     >
                       <div className="relative h-48 w-48 mx-auto mb-4 rounded-lg overflow-hidden">
                         <Image
-                          src={member.image}
+                          src={getImagePath(member.image)}
                           alt={member.name}
                           width={620}
                           height={620}

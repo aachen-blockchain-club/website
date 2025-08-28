@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { getImagePath } from "@/lib/imagePath";
 
 export default function Footer() {
   return (
@@ -66,18 +67,18 @@ export default function Footer() {
               >
                 <div className="w-5 h-5 relative">
                   <Image
-                    src="/images/linktree.webp"
+                    src={getImagePath("/images/linktree.webp")}
                     alt="Linktree"
                     fill
                     className="object-contain brightness-0 invert opacity-60 group-hover:opacity-0 transition-all duration-300"
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{
                     background: 'rgb(192, 132, 252)', // This is the exact purple-400 color
-                    maskImage: 'url(/images/linktree.webp)',
+                    maskImage: `url(${getImagePath("/images/linktree.webp")})`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
-                    WebkitMaskImage: 'url(/images/linktree.webp)',
+                    WebkitMaskImage: `url(${getImagePath("/images/linktree.webp")})`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center'
