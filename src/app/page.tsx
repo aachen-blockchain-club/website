@@ -2,6 +2,23 @@ import Link from "next/link";
 import Image from "next/image";
 import CryptoBackground from "@/components/CryptoBackground";
 import { landingPageItems, LandingPageItem } from "@/data/landing";
+import fs from 'fs';
+import path from 'path';
+
+// Get logos dynamically from the logos folder
+function getLogos() {
+  const logosDirectory = path.join(process.cwd(), 'public/images/logos');
+  const filenames = fs.readdirSync(logosDirectory);
+  
+  // Filter out non-image files and system files
+  const logoFiles = filenames.filter(name => 
+    !name.startsWith('.') && 
+    (name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') || 
+     name.endsWith('.svg') || name.endsWith('.webp') || name.endsWith('.gif'))
+  );
+  
+  return logoFiles.map(filename => `/images/logos/${filename}`);
+}
 
 export default function Home() {
   // Filter items by category
@@ -9,8 +26,19 @@ export default function Home() {
   const partnershipsItems = landingPageItems.filter(item => item.category === 'Partnerships');
   const communityItems = landingPageItems.filter(item => item.category === 'Community');
 
+  // Get logos dynamically from filesystem
+  const logos = getLogos();
+
+  // Dynamic grid columns based on number of logos
+  const getGridCols = (count: number) => {
+    if (count <= 2) return 'grid-cols-1 md:grid-cols-2';
+    if (count <= 3) return 'grid-cols-2 md:grid-cols-3';
+    if (count <= 4) return 'grid-cols-2 md:grid-cols-4';
+    return 'grid-cols-2 md:grid-cols-5';
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white">
+    <div className="bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white">
       <CryptoBackground />
       {/* Hero Section */}
       <div className="relative h-screen flex items-center justify-center px-4 sm:px-6">
@@ -278,13 +306,94 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="text-center mt-8">
-          <Link
-            href="/events"
-            className="inline-block px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-all duration-300"
-          >
-            View All Events
-          </Link>
+        <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 mt-16">
+          <h3 className="text-2xl font-bold text-center mb-4 text-purple-300">Ready to Start Your Blockchain Journey?</h3>
+          <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
+            Become part of Aachen's most active blockchain community and start your journey in web3.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/events"
+              className="w-full sm:w-auto px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-all duration-300 text-center"
+            >
+              View All Events
+            </Link>
+            <Link
+              href="/team"
+              className="w-full sm:w-auto px-6 py-3 rounded-full border border-purple-600 hover:bg-purple-600/20 transition-all duration-300 text-center"
+            >
+              Meet the Team
+            </Link>
+          </div>
+        </div>
+
+        {/* Patron Professor Section */}
+        <div className="mt-20">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 text-purple-400">
+            Meet Our Patron
+          </h2>
+          
+          <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg rounded-2xl p-8">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="relative w-64 h-64 flex-shrink-0 mx-auto md:mx-0">
+                <Image
+                  src="/images/prinz.jpeg"
+                  alt="Professor Prinz"
+                  fill
+                  className="object-contain rounded-2xl"
+                />
+              </div>
+              
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-purple-300">
+                  Professor Dr. Wolfgang Prinz
+                </h3>
+                <p className="text-purple-200 mb-4 text-lg">
+                  Deputy Director of Fraunhofer FIT
+                </p>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Professor Wolfgang Prinz is Deputy Director of Fraunhofer FIT and Professor at RWTH Aachen University. 
+                  As founding director of the Blockchain Reallabor, he drives real-world blockchain innovation, helping industry explore applications from product passports and IoT security to digital education credentials. 
+                  Under his leadership, the Reallabor has developed over 25 prototypes, hosted major Web3 events and established professional training programs—making him a leading figure in bridging research and practice for blockchain adoption.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Industry Collaborations Section */}
+        <div className="mt-20">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 text-purple-400">
+            Partnering with Industry Leaders
+          </h2>
+          <p className="text-gray-300 text-center mb-8 max-w-3xl mx-auto text-lg">
+            We've had the privilege to collaborate and work with renowned experts and organizations
+            in the blockchain space, bringing world-class knowledge to our community.
+          </p>
+          
+          <div className="text-center mb-12">
+            <a
+              href="mailto:contact@aachenblockchain.club?subject=Partnership Opportunity&body=Hello Aachen Blockchain Club,%0D%0A%0D%0AI'm interested in exploring partnership opportunities with your organization.%0D%0A%0D%0ABest regards"
+              className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 text-white font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Partner With Us
+            </a>
+          </div>
+          
+          <div className={`grid ${getGridCols(logos.length)} gap-12 items-center justify-items-center`}>
+            {logos.map((logoSrc, index) => (
+              <div key={index} className="group">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto">
+                  <Image
+                    src={logoSrc}
+                    alt="Partner Logo"
+                    fill
+                    className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
