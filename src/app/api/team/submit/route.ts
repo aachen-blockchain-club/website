@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       name,
       title,
       team,
-      image: `images/profiles/${filename}`,
+      image: `/images/profiles/${filename}`,
       socialLinks: {
         ...(linkedin && { linkedin }),
         ...(x && { x }),
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     name: '${name}',
     title: '${title}',
     team: '${team}',
-    image: 'images/profiles/${filename}',${Object.keys(newMember.socialLinks).length > 0 ? `
+    image: '/images/profiles/${filename}',${Object.keys(newMember.socialLinks).length > 0 ? `
     socialLinks: {${linkedin ? `
       linkedin: '${linkedin}'` : ''}${x ? `${linkedin ? ',' : ''}
       x: '${x}'` : ''}${github ? `${linkedin || x ? ',' : ''}
