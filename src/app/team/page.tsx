@@ -42,7 +42,7 @@ export default function TeamPage() {
                       key={`${member.name}-${index}`}
                       className="group relative overflow-hidden rounded-xl bg-white/5 p-6 backdrop-blur-lg hover:bg-white/10 transition-all duration-300"
                     >
-                      <div className="relative h-48 w-48 mx-auto mb-4 rounded-lg overflow-hidden">
+                      <div className="relative h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 mx-auto mb-4 rounded-lg overflow-hidden">
                         <Image
                           src={getImagePath(member.image)}
                           alt={member.name}
