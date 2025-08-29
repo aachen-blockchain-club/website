@@ -70,7 +70,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Arpad Djuraki',
-    title: '',
+    title: 'Founding Member',
     team: 'advisory',
     image: '/images/profiles/arpad.png',
     socialLinks: {
