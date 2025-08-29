@@ -42,14 +42,14 @@ export default function Navigation() {
               Home
             </Link>
             <Link
-              href="/about"
+              href="/milestones"
               className={`px-3 py-2 rounded-full text-sm transition-colors duration-300 ${
-                isActive("/about")
+                isActive("/milestones")
                   ? "bg-purple-600 text-white"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              About
+              Milestones
             </Link>
             <Link
               href="/team"
@@ -70,6 +70,16 @@ export default function Navigation() {
               }`}
             >
               Events
+            </Link>
+            <Link
+              href="/contact"
+              className={`px-3 py-2 rounded-full text-sm transition-colors duration-300 ${
+                isActive("/contact")
+                  ? "bg-purple-600 text-white"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Contact Us
             </Link>
           </div>
 
@@ -120,14 +130,14 @@ export default function Navigation() {
             Home
           </Link>
           <Link
-            href="/about"
+            href="/milestones"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
-              isActive("/about")
+              isActive("/milestones")
                 ? "bg-purple-600 text-white"
                 : "text-gray-300 hover:bg-gray-700 hover:text-white"
             }`}
           >
-            About
+            Milestones
           </Link>
           <Link
             href="/team"
@@ -148,6 +158,16 @@ export default function Navigation() {
             }`}
           >
             Events
+          </Link>
+          <Link
+            href="/contact"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              isActive("/contact")
+                ? "bg-purple-600 text-white"
+                : "text-gray-300 hover:bg-gray-700 hover:text-white"
+            }`}
+          >
+            Contact Us
           </Link>
         </div>
       </div>

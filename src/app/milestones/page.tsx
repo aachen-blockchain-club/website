@@ -1,7 +1,7 @@
 import { milestones } from "@/data/milestones";
 import Timeline from "@/components/Timeline";
 
-export default function AboutPage() {
+export default function MilestonesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white py-20 px-4">
       <div className="max-w-7xl mx-auto">

@@ -58,7 +58,7 @@ export default function Home() {
               Upcoming Events
             </Link>
             <Link
-              href="/about"
+              href="/team"
               className="w-full sm:w-auto px-6 py-3 rounded-full border border-purple-600 hover:bg-purple-600/20 transition-all duration-300 text-center"
             >
               Meet the Team
@@ -373,12 +373,12 @@ export default function Home() {
           </p>
           
           <div className="text-center mb-12">
-            <a
-              href="mailto:contact@aachenblockchain.club?subject=Partnership Opportunity&body=Hello Aachen Blockchain Club,%0D%0A%0D%0AI'm interested in exploring partnership opportunities with your organization.%0D%0A%0D%0ABest regards"
+            <Link
+              href="/contact"
               className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 text-white font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Partner With Us
-            </a>
+            </Link>
           </div>
           
           <div className={`grid ${getGridCols(logos.length)} gap-12 items-center justify-items-center`}>

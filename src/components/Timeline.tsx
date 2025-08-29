@@ -156,13 +156,16 @@ export default function Timeline({ milestones }: TimelineProps) {
               Shape the future with blockchain. 
               Start your journey now.
             </p>
-            <motion.button
+            <motion.a
+              href="https://drive.google.com/file/d/10_El8KpaJp18Z7_PJ63wGER7GRsXb5ys/view"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
             >
               Join ABC Today
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

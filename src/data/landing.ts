@@ -14,12 +14,12 @@ export interface LandingPageItem {
 export const landingPageItems: LandingPageItem[] = [
     // Community
     {
-        image: '/images/landing_page/10yethereum.PNG',
+        image: '/images/landing_page/10yethereum.jpg',
         category: 'Community',
         heading: 'Ethereum 10 Year Anniversary',
     },
     {
-        image: '/images/landing_page/berlin.JPG',
+        image: '/images/landing_page/berlin.jpg',
         category: 'Community',
     },
     {
@@ -40,7 +40,7 @@ export const landingPageItems: LandingPageItem[] = [
         category: 'Partnerships',
     },
     {
-        image: '/images/landing_page/istanbul.JPG',
+        image: '/images/landing_page/istanbul.jpg',
         category: 'Partnerships',
     },
     // Education
