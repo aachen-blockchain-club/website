@@ -7,7 +7,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
-            Get in touch with the Aachen Blockchain Club. We'd love to hear from you!
+            Get in touch with the Aachen Blockchain Club. We would love to hear from you!
           </p>
           
           <div className="flex justify-center">

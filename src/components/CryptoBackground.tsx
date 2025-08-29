@@ -105,6 +105,7 @@ export default function CryptoBackground() {
       // Capture the current value of the ref to avoid stale closure
       const currentIntervals = chainIntervalsRef.current;
       currentIntervals.forEach((interval) => clearInterval(interval));
+      chainIntervalsRef.current = [];
     };
   }, [maxBlocksPerChain]); // Add maxBlocksPerChain to dependencies
 
