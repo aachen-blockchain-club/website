@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { getImagePath } from "@/lib/imagePath";
+import { useState } from "react";
 
 interface TimelineProps {
   milestones: {
@@ -15,12 +16,26 @@ interface TimelineProps {
 }
 
 export default function Timeline({ milestones }: TimelineProps) {
+  const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
+  
   // Sort milestones by date (oldest first)
   const sortedMilestones = [...milestones].sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
     return dateA.getTime() - dateB.getTime();
   });
+
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => new Set(prev).add(index));
+  };
+
+  const getImageSrc = (imagePath: string, index: number) => {
+    if (imageErrors.has(index)) {
+      // Fallback to direct path if getImagePath fails
+      return imagePath;
+    }
+    return getImagePath(imagePath);
+  };
 
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -73,10 +88,11 @@ export default function Timeline({ milestones }: TimelineProps) {
                     {/* Image */}
                     <div className="relative h-48 sm:h-56 overflow-hidden">
                       <Image
-                        src={getImagePath(milestone.image)}
+                        src={getImageSrc(milestone.image, index)}
                         alt={milestone.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={() => handleImageError(index)}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       {/* Link indicator */}
@@ -102,10 +118,11 @@ export default function Timeline({ milestones }: TimelineProps) {
                     {/* Image */}
                     <div className="relative h-48 sm:h-56 overflow-hidden">
                       <Image
-                        src={getImagePath(milestone.image)}
+                        src={getImageSrc(milestone.image, index)}
                         alt={milestone.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={() => handleImageError(index)}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     </div>

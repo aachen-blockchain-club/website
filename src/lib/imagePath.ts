@@ -7,9 +7,14 @@ export function getImagePath(imagePath: string): string {
   // Remove leading slash if present
   const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
   
+  // Check if we're in production and on GitHub Pages
+  // Use both build-time and runtime checks to ensure consistency
+  const isProduction = process.env.NODE_ENV === 'production';
+  const isGitHubPages = process.env.GITHUB_PAGES === 'true' || 
+                       (typeof window !== 'undefined' && window.location.hostname.includes('github.io'));
+  
   // For GitHub Pages deployment, we need to add the basePath
-  // The GITHUB_PAGES environment variable should be set to 'true' as a string
-  if (process.env.NODE_ENV === 'production' && process.env.GITHUB_PAGES === 'true') {
+  if (isProduction && isGitHubPages) {
     return `/website/${cleanPath}`;
   }
   
