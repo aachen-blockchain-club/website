@@ -320,10 +320,10 @@ export default function Home() {
               View All Events
             </Link>
             <Link
-              href="/team"
+              href="/milestones"
               className="w-full sm:w-auto px-6 py-3 rounded-full border border-purple-600 hover:bg-purple-600/20 transition-all duration-300 text-center"
             >
-              Meet the Team
+              Milestones
             </Link>
           </div>
         </div>

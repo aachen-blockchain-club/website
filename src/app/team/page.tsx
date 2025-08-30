@@ -1,10 +1,34 @@
+"use client";
+
 import Image from "next/image";
 import { teamMembers as allTeamMembers } from "@/data/team";
 import { TeamMember } from "@/types/member";
 import Link from "next/link";
 import { getImagePath } from "@/lib/imagePath";
+import { useState } from "react";
 
 export default function TeamPage() {
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = (memberName: string) => {
+    setImageErrors(prev => new Set(prev).add(memberName));
+  };
+
+  const PlaceholderAvatar = ({ name }: { name: string }) => {
+    const initials = name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+
+    return (
+      <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-300 font-bold text-2xl border border-gray-600">
+        {initials}
+      </div>
+    );
+  };
+
   // Define teams in the correct order with their display names
   const teamsWithHeaders = [
     { key: 'board', header: 'Board Members' },
@@ -43,13 +67,18 @@ export default function TeamPage() {
                       className="group relative overflow-hidden rounded-xl bg-white/5 p-6 backdrop-blur-lg hover:bg-white/10 transition-all duration-300"
                     >
                       <div className="relative h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 mx-auto mb-4 rounded-lg overflow-hidden">
-                        <Image
-                          src={getImagePath(member.image)}
-                          alt={member.name}
-                          width={620}
-                          height={620}
-                          className="object-cover w-full h-full"
-                        />
+                        {imageErrors.has(member.name) ? (
+                          <PlaceholderAvatar name={member.name} />
+                        ) : (
+                          <Image
+                            src={getImagePath(member.image)}
+                            alt={member.name}
+                            width={620}
+                            height={620}
+                            className="object-cover w-full h-full"
+                            onError={() => handleImageError(member.name)}
+                          />
+                        )}
                       </div>
                       <h3 className="text-xl font-semibold text-center mb-2">
                         {member.name}
