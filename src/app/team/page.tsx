@@ -51,9 +51,14 @@ export default function TeamPage() {
           </p>
 
           {teamsWithHeaders.map(({ key: team, header }) => {
-            const teamMembers = allTeamMembers.filter(
+            let teamMembers = allTeamMembers.filter(
               (member: TeamMember) => member.team === team
             );
+
+            // Sort alphabetically for specific teams, but not for board and team heads
+            if (team === 'advisory' || team === 'member' || team === 'alumni') {
+              teamMembers = teamMembers.sort((a, b) => a.name.localeCompare(b.name));
+            }
 
             return teamMembers.length > 0 ? (
               <div key={team} className="mb-16">

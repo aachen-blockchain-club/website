@@ -1,6 +1,7 @@
 import { TeamMember } from '../types/member';
 
 export const teamMembers: TeamMember[] = [
+  // Board Members
   {
     name: 'Mikolaj Radlinski',
     title: 'President',
@@ -30,6 +31,28 @@ export const teamMembers: TeamMember[] = [
       github: 'https://github.com/santy311'
     }
   },
+
+  // Team Heads
+  {
+    name: 'Yang Tu Vy',
+    title: 'Community Team Head',
+    team: 'team heads',
+    image: '/images/profiles/yang.png',
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/vyyang/'
+    }
+  },
+  {
+    name: 'Ashwin Kumar Karnad',
+    title: 'Industry Team Head',
+    team: 'team heads',
+    image: '/images/profiles/ashwin.png',
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/ashwinkumarkarnad/'
+    }
+  },
+
+  // Advisory Board
   {
     name: 'Ahoura Azarbin',
     title: '',
@@ -41,22 +64,19 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: 'Lennart Czardybon',
-    title: 'Community Team Lead',
-    team: 'team heads',
-    image: '/images/profiles/lennart.png',
+    name: 'Arpad Djuraki',
+    title: 'Founding Member',
+    team: 'advisory',
+    image: '/images/profiles/arpad.png',
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/arpad-djuraki/'
+    }
   },
   {
-    name: 'Sascha Nievelstein',
+    name: 'Dercio Hoffmann',
     title: '',
-    team: 'member',
-    image: '/images/profiles/sascha.png',
-  },
-  {
-    name: 'Ki Wook Kim',
-    title: '',
-    team: 'member',
-    image: '/images/profiles/kim.png',
+    team: 'advisory',
+    image: ''
   },
   {
     name: 'Lorenz Lehmann',
@@ -68,18 +88,60 @@ export const teamMembers: TeamMember[] = [
       github: 'https://github.com/lorenz234'
     }
   },
-  {
-    name: 'Arpad Djuraki',
-    title: 'Founding Member',
-    team: 'advisory',
-    image: '/images/profiles/arpad.png',
-    socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/arpad-djuraki/'
-    }
-  },
-  
-  // Add more members here
 
+  // Members
+  { name: 'Andres Viver', title: '', team: 'member', image: '' },
+  { name: 'Arjeet Gongboir', title: '', team: 'member', image: '' },
+  { name: 'Aya Taseva', title: '', team: 'member', image: '' },
+  { name: 'Bora Oben', title: '', team: 'member', image: '' },
+  { name: 'Hazal  Ozturk', title: '', team: 'member', image: '' },
+  { name: 'Ki Wook Kim', title: '', team: 'member', image: '/images/profiles/kim.png' },
+  { name: 'Lennart Czardybon', title: '', team: 'member', image: '/images/profiles/lennart.png' },
+  { name: 'Melih Süha Dal', title: '', team: 'member', image: '/images/profiles/melih.png', socialLinks: { x: 'https://x.com/msdal34', linkedin: 'https://www.linkedin.com/in/msdal/', github: 'https://github.com/0xmsd' } },
+  { name: 'Mohamed Ali Chelbi', title: '', team: 'member', image: '' },
+  { name: 'Mohammed Issa', title: '', team: 'member', image: '' },
+  { name: 'Murathan Yelkovan', title: '', team: 'member', image: '' },
+  { name: 'Phulchand Saraswati', title: 'Founding Member', team: 'member', image: '' },
+  { name: 'Pragya Seraphim', title: '', team: 'member', image: '' },
+  { name: 'Rustam Tursun-zoda', title: '', team: 'member', image: '/images/profiles/rustam.png', socialLinks: { linkedin: 'www.linkedin.com/in/rustam-tursun-zoda' } },
+  { name: 'Sascha Nievelstein', title: '', team: 'member', image: '/images/profiles/sascha.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/sascha-nievelstein/', github: 'https://github.com/nievelstone' } },
+  { name: 'Silas Milch', title: '', team: 'member', image: '' },
+
+  // Alumni
+  { name: 'Abhishek Kapoor', title: '', team: 'alumni', image: '' },
+  { name: 'Ahmet Tolga Erdönmez', title: '', team: 'alumni', image: '' },
+  { name: 'Ali Agharazi Dormani', title: '', team: 'alumni', image: '' },
+  { name: 'Ali Ghazi', title: '', team: 'alumni', image: '' },
+  { name: 'Ali Hariri', title: '', team: 'alumni', image: '' },
+  { name: 'Arjeet Gongboir', title: '', team: 'alumni', image: '' },
+  { name: 'Benno Dill', title: 'Founding Member', team: 'alumni', image: '' },
+  { name: 'Bora Avcu', title: '', team: 'alumni', image: '' },
+  { name: 'Dorian Przetakiewicz', title: '', team: 'alumni', image: '' },
+  { name: 'Engin Treseler', title: '', team: 'alumni', image: '' },
+  { name: 'Eric Guntermann', title: '', team: 'alumni', image: '' },
+  { name: 'Fabian Steinfeld', title: '', team: 'alumni', image: '' },
+  { name: 'Glory Adenuga', title: '', team: 'alumni', image: '' },
+  { name: 'Gregor Seidel', title: '', team: 'alumni', image: '' },
+  { name: 'Hcine Turki', title: '', team: 'alumni', image: '' },
+  { name: 'Jannis Herding', title: '', team: 'alumni', image: '' },
+  { name: 'Johan Kakkallil Mathew', title: '', team: 'alumni', image: '' },
+  { name: 'Kanak Lxmikant (Ken) Mulane', title: '', team: 'alumni', image: '' },
+  { name: 'Kayra Oguz', title: '', team: 'alumni', image: '' },
+  { name: 'Lev Lekush', title: '', team: 'alumni', image: '' },
+  { name: 'Matulan Puvaneswarasundaram', title: 'Founding Member', team: 'alumni', image: '/images/profiles/matulan.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/matulan-puvaneswarasundaram-8403171b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' } },
+  { name: 'Mohammad Ghazi', title: '', team: 'alumni', image: '' },
+  { name: 'Mohammed Saheen Kuruvanna', title: '', team: 'alumni', image: '' },
+  { name: 'Mohcine Boujraf', title: '', team: 'alumni', image: '' },
+  { name: 'Mouad Sabor', title: '', team: 'alumni', image: '' },
+  { name: 'Nabin Bhattarai', title: '', team: 'alumni', image: '' },
+  { name: 'Paul Vogt', title: 'Founding Member', team: 'alumni', image: '' },
+  { name: 'Pei Fengwei', title: '', team: 'alumni', image: '' },
+  { name: 'Semahat Korkmazer', title: '', team: 'alumni', image: '' },
+  { name: 'Silas Milch', title: '', team: 'alumni', image: '' },
+  { name: 'Swati Jeevan', title: '', team: 'alumni', image: '' },
+  { name: 'Tim Wahlen', title: 'Founding Member', team: 'alumni', image: '' },
+  { name: 'Volodymyr Sheremeta', title: '', team: 'alumni', image: '' },
+  { name: 'Wiliam Hoy', title: '', team: 'alumni', image: '' },
 ];
 
-export const teams = ['board', 'advisory', 'team heads', 'member', 'alumni'] as const; 
+export const teams = ['board', 'advisory', 'team heads', 'member', 'alumni'] as const;
