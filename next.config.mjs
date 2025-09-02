@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true';
 
 const nextConfig = {
   output: 'export',
@@ -9,9 +10,9 @@ const nextConfig = {
     remotePatterns: [],
     domains: [],
   },
-  // GitHub Pages deployment configuration
-  basePath: isGitHubPages ? '/website' : '',
-  assetPrefix: isGitHubPages ? '/website' : '',
+  // Only use basePath for GitHub Pages, not for custom domains
+  basePath: (isGitHubPages && !isCustomDomain) ? '/website' : '',
+  assetPrefix: (isGitHubPages && !isCustomDomain) ? '/website' : '',
 };
 
 export default nextConfig;

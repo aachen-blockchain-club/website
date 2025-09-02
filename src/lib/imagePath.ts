@@ -8,13 +8,19 @@ export function getImagePath(imagePath: string): string {
   const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
   
   // Check if we're in production and on GitHub Pages
-  // Use both build-time and runtime checks to ensure consistency
   const isProduction = process.env.NODE_ENV === 'production';
   const isGitHubPages = process.env.GITHUB_PAGES === 'true' || 
                        (typeof window !== 'undefined' && window.location.hostname.includes('github.io'));
+  const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true' ||
+                        (typeof window !== 'undefined' && window.location.hostname === 'aachen-blockchain.de');
   
-  // For GitHub Pages deployment, we need to add the basePath
-  if (isProduction && isGitHubPages) {
+  // For GitHub Pages deployment with custom domain, use root path
+  if (isProduction && isCustomDomain) {
+    return `/${cleanPath}`;
+  }
+  
+  // For GitHub Pages deployment without custom domain, use basePath
+  if (isProduction && isGitHubPages && !isCustomDomain) {
     return `/website/${cleanPath}`;
   }
   
