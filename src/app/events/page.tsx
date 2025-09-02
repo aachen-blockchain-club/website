@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { getImagePath } from "@/lib/imagePath";
+
 export default function EventsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white py-16 sm:py-20">
@@ -26,20 +29,20 @@ export default function EventsPage() {
 
         <section className="flex flex-col items-center mt-12 sm:mt-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-            Calendar
+            Join Our WhatsApp Community
           </h2>
           <p className="text-center text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto text-base sm:text-lg">
-            View our complete calendar with all events, meetings and activities.
+            Be the first to know about new events, join our WhatsApp community to stay in the loop.
           </p>
-          <div className="w-full max-w-4xl">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBerlin&showPrint=0&showTitle=0&hl=en_GB&mode=AGENDA&src=ZDk4YTRhYmJjYTJlZjE1Nzg0YzJjNzhjODgyZmRlMWMyZTQxOGZhZjI5YzUzYzgzMzFhMGQ0MzU5NjgzMDc5ZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23c0ca33"
-              width="100%"
-              height="600"
-              frameBorder="0"
-              style={{ border: "1px solid #a855f7", borderRadius: "4px" }}
-              scrolling="no"
-            />
+          <div className="w-full max-w-md flex justify-center">
+            <div className="relative w-64 h-64 border border-purple-500 rounded-lg overflow-hidden">
+              <Image
+                src={getImagePath("/images/whatsapp.svg")}
+                alt="Join Aachen Blockchain Club WhatsApp Community"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </section>
       </div>

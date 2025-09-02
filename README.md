@@ -42,5 +42,13 @@ To replace the landing page video, add your video file to: [`public/video/`](pub
 
 The video should be named `landing.mp4` and have dimensions of **1920x540 pixels** to maintain the correct aspect ratio.
 
-*Tip: Use CapCut for resizing videos* 
+*Tip: Use CapCut for resizing videos*
+
+### Events Page Calendar
+
+To replace the whatsapp qr code, add your qr code image file to: [`public/images/`](public/images/)
+
+The image is referenced as `whatsapp.svg` in [`src/app/events/page.tsx`](src/app/events/page.tsx) and will be displayed in the calendar section.
+
+*Tip: Use qrcode-monkey.com to generate QR codes with custom logo* 
 
