@@ -23,7 +23,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Santhosh Senthil Kumar',
-    title: 'Treasurer & R&D Team Lead',
+    title: 'Treasurer & R&D Team Head',
     team: 'board',
     image: '/images/profiles/santhosch.png',
     socialLinks: {
@@ -48,7 +48,9 @@ export const teamMembers: TeamMember[] = [
     team: 'team heads',
     image: '/images/profiles/ashwin.png',
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/ashwinkumarkarnad/'
+      x: 'https://x.com/iamashwin99',
+      linkedin: 'https://www.linkedin.com/in/ashwinkumarkarnad/',
+      github: 'https://github.com/iamashwin99'
     }
   },
 
@@ -76,7 +78,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Dercio Hoffmann',
     title: '',
     team: 'advisory',
-    image: ''
+    image: '/images/profiles/dercio.png'
   },
   {
     name: 'Lorenz Lehmann',
@@ -94,12 +96,13 @@ export const teamMembers: TeamMember[] = [
   { name: 'Arjeet Gongboir', title: '', team: 'member', image: '' },
   { name: 'Aya Taseva', title: '', team: 'member', image: '' },
   { name: 'Bora Oben', title: '', team: 'member', image: '' },
+  { name: 'Eric Guntermann', title: '', team: 'member', image: '' },
   { name: 'Hazal  Ozturk', title: '', team: 'member', image: '' },
   { name: 'Ki Wook Kim', title: '', team: 'member', image: '/images/profiles/kim.png' },
-  { name: 'Lennart Czardybon', title: '', team: 'member', image: '/images/profiles/lennart.png' },
+  { name: 'Lennart Czardybon', title: '', team: 'member', image: '/images/profiles/lennart.png', socialLinks: { x: 'https://x.com/lennc2ar', linkedin: 'https://www.linkedin.com/in/lennart-czardybon', github: 'https://github.com/lennczar' } },
   { name: 'Melih Süha Dal', title: '', team: 'member', image: '/images/profiles/melih.png', socialLinks: { x: 'https://x.com/msdal34', linkedin: 'https://www.linkedin.com/in/msdal/', github: 'https://github.com/0xmsd' } },
   { name: 'Mohamed Ali Chelbi', title: '', team: 'member', image: '' },
-  { name: 'Mohammed Issa', title: '', team: 'member', image: '' },
+  { name: 'Mohammed Issa', title: '', team: 'member', image: '/images/profiles/issa.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/mohammedissa23/', github: 'https://github.com/mohaIssaa' } },
   { name: 'Murathan Yelkovan', title: '', team: 'member', image: '' },
   { name: 'Phulchand Saraswati', title: 'Founding Member', team: 'member', image: '' },
   { name: 'Pragya Seraphim', title: '', team: 'member', image: '' },
@@ -118,7 +121,6 @@ export const teamMembers: TeamMember[] = [
   { name: 'Bora Avcu', title: '', team: 'alumni', image: '' },
   { name: 'Dorian Przetakiewicz', title: '', team: 'alumni', image: '' },
   { name: 'Engin Treseler', title: '', team: 'alumni', image: '' },
-  { name: 'Eric Guntermann', title: '', team: 'alumni', image: '' },
   { name: 'Fabian Steinfeld', title: '', team: 'alumni', image: '' },
   { name: 'Glory Adenuga', title: '', team: 'alumni', image: '' },
   { name: 'Gregor Seidel', title: '', team: 'alumni', image: '' },

@@ -133,6 +133,21 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Video Section - Full Width */}
+      <div className="w-full aspect-[1920/540] overflow-hidden">
+        <video
+          className="w-full h-full object-fill"
+          autoPlay
+          muted
+          loop
+          preload="metadata"
+          playsInline
+        >
+          <source src={getImagePath("/video/landing.mp4")} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       {/* Our Activities Section */}
       <div className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold text-center mb-12 text-purple-400">

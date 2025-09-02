@@ -34,5 +34,13 @@ Milestone photos should be placed in: [`public/images/milestones/`](public/image
 
 To edit the pictures in the three main sections (Learn, Grow, Connect), modify: [`src/data/landing.ts`](src/data/landing.ts)
 
-Activity pictures are stored in: [`public/images/landing_page/`](public/images/landing_page/) 
+Activity pictures are stored in: [`public/images/landing_page/`](public/images/landing_page/)
+
+### Landing Page Video
+
+To replace the landing page video, add your video file to: [`public/video/`](public/video/)
+
+The video should be named `landing.mp4` and have dimensions of **1920x540 pixels** to maintain the correct aspect ratio.
+
+*Tip: Use CapCut for resizing videos* 
 
