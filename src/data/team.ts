@@ -3,33 +3,35 @@ import { TeamMember } from '../types/member';
 export const teamMembers: TeamMember[] = [
   // Board Members
   {
-    name: 'Mikolaj Radlinski',
+    name: 'Alexander Rheindorf',
     title: 'President',
     team: 'board',
-    image: '/images/profiles/mike.png',
+    image: '/images/profiles/Alexander.png',
     socialLinks: {
-      x: 'https://x.com/MikePawel',
-      github: 'https://github.com/MikePawel'
+      linkedin: 'https://www.linkedin.com/in/alexander-rene-rheindorf/'
     }
   },
   {
-    name: 'Ivan Dimitrov',
-    title: 'Vice President',
+    name: 'Ashwin Kumar Karnad',
+    title: 'Vice President & R&D Team Head',
     team: 'board',
-    image: '/images/profiles/ivan.png',
+    image: '/images/profiles/ashwin.png',
     socialLinks: {
-      x: 'https://x.com/IvanE1E1'
+      x: 'https://x.com/iamashwin99',
+      linkedin: 'https://www.linkedin.com/in/ashwinkumarkarnad/',
+      github: 'https://github.com/iamashwin99'
     }
   },
-  {
-    name: 'Santhosh Senthil Kumar',
-    title: 'Treasurer & R&D Team Head',
-    team: 'board',
-    image: '/images/profiles/santhosch.png',
-    socialLinks: {
-      x: 'https://x.com/sant18z',
-      github: 'https://github.com/santy311'
-    }
+  { 
+    name: 'Melih Süha Dal', 
+    title: 'Treasurer', 
+    team: 'board', 
+    image: '/images/profiles/melih.png', 
+    socialLinks: { 
+      x: 'https://x.com/msdal34', 
+      linkedin: 'https://www.linkedin.com/in/msdal/', 
+      github: 'https://github.com/0xmsd' 
+    } 
   },
 
   // Team Heads
@@ -43,21 +45,19 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: 'Ashwin Kumar Karnad',
+    name: 'Ivan Dimitrov',
     title: 'Industry Team Head',
     team: 'team heads',
-    image: '/images/profiles/ashwin.png',
+    image: '/images/profiles/ivan.png',
     socialLinks: {
-      x: 'https://x.com/iamashwin99',
-      linkedin: 'https://www.linkedin.com/in/ashwinkumarkarnad/',
-      github: 'https://github.com/iamashwin99'
+      x: 'https://x.com/IvanE1E1'
     }
   },
 
   // Advisory Board
   {
     name: 'Ahoura Azarbin',
-    title: '',
+    title: 'Former President 2024',
     team: 'advisory',
     image: '/images/profiles/ahoura.png',
     socialLinks: {
@@ -100,7 +100,7 @@ export const teamMembers: TeamMember[] = [
   { name: 'Hazal  Ozturk', title: '', team: 'member', image: '' },
   { name: 'Ki Wook Kim', title: '', team: 'member', image: '/images/profiles/kim.png' },
   { name: 'Lennart Czardybon', title: '', team: 'member', image: '/images/profiles/lennart.png', socialLinks: { x: 'https://x.com/lennc2ar', linkedin: 'https://www.linkedin.com/in/lennart-czardybon', github: 'https://github.com/lennczar' } },
-  { name: 'Melih Süha Dal', title: '', team: 'member', image: '/images/profiles/melih.png', socialLinks: { x: 'https://x.com/msdal34', linkedin: 'https://www.linkedin.com/in/msdal/', github: 'https://github.com/0xmsd' } },
+  { name: 'Mikolaj Radlinski', title: 'President 2024-2025', team: 'board', image: '/images/profiles/mike.png', socialLinks: { x: 'https://x.com/MikePawel', github: 'https://github.com/MikePawel' } },
   { name: 'Mohammed Issa', title: '', team: 'member', image: '/images/profiles/issa.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/mohammedissa23/', github: 'https://github.com/mohaIssaa' } },
   { name: 'Murathan Yelkovan', title: '', team: 'member', image: '' },
   { name: 'Mohamed Ali Chelbi', title: '', team: 'member', image: '/images/profiles/moe.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/mohamed-ali-chelbi/', github: 'https://github.com/mohamedalichelbi' } },
@@ -138,6 +138,7 @@ export const teamMembers: TeamMember[] = [
   { name: 'Paul Vogt', title: 'Founding Member', team: 'alumni', image: '' },
   { name: 'Pei Fengwei', title: '', team: 'alumni', image: '' },
   { name: 'Phulchand Saraswati', title: 'Founding Member', team: 'alumni', image: '/images/profiles/phulchand.png' , socialLinks: { linkedin: 'www.linkedin.com/in/phulchandsaraswati' } },
+  { name: 'Santhosh Senthil Kumar', title: 'Former Treasurer 2024-2025', team: 'alumni', image: '/images/profiles/santhosch.png', socialLinks: { x: 'https://x.com/sant18z', github: 'https://github.com/santy311' } },
   { name: 'Semahat Korkmazer', title: '', team: 'alumni', image: '' },
   { name: 'Silas Milch', title: '', team: 'alumni', image: '' },
   { name: 'Swati Jeevan', title: '', team: 'alumni', image: '' },
