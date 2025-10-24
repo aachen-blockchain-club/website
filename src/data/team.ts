@@ -100,7 +100,7 @@ export const teamMembers: TeamMember[] = [
   { name: 'Hazal  Ozturk', title: '', team: 'member', image: '' },
   { name: 'Ki Wook Kim', title: '', team: 'member', image: '/images/profiles/kim.png' },
   { name: 'Lennart Czardybon', title: '', team: 'member', image: '/images/profiles/lennart.png', socialLinks: { x: 'https://x.com/lennc2ar', linkedin: 'https://www.linkedin.com/in/lennart-czardybon', github: 'https://github.com/lennczar' } },
-  { name: 'Mikolaj Radlinski', title: 'President 2024-2025', team: 'board', image: '/images/profiles/mike.png', socialLinks: { x: 'https://x.com/MikePawel', github: 'https://github.com/MikePawel' } },
+  { name: 'Mikolaj Radlinski', title: 'President 2024-2025', team: 'member', image: '/images/profiles/mike.png', socialLinks: { x: 'https://x.com/MikePawel', github: 'https://github.com/MikePawel' } },
   { name: 'Mohammed Issa', title: '', team: 'member', image: '/images/profiles/issa.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/mohammedissa23/', github: 'https://github.com/mohaIssaa' } },
   { name: 'Murathan Yelkovan', title: '', team: 'member', image: '' },
   { name: 'Mohamed Ali Chelbi', title: '', team: 'member', image: '/images/profiles/moe.png', socialLinks: { linkedin: 'https://www.linkedin.com/in/mohamed-ali-chelbi/', github: 'https://github.com/mohamedalichelbi' } },
