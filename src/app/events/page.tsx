@@ -37,7 +37,7 @@ export default function EventsPage() {
           <div className="w-full max-w-md flex justify-center">
             <div className="relative w-64 h-64 border border-purple-500 rounded-lg overflow-hidden">
               <Image
-                src={getImagePath("/images/whatsapp.svg")}
+                src={getImagePath("/images/whatsapp.png")}
                 alt="Join Aachen Blockchain Club WhatsApp Community"
                 fill
                 className="object-contain"
